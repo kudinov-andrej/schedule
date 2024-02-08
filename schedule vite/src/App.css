@@ -20,7 +20,7 @@
   padding: 0;
   margin-left: 60px;
   margin-right: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   width: 100%;
   max-width: 1280px;
   color: white;
@@ -191,3 +191,62 @@
   cursor: pointer;
   background-color: rgb(189, 174, 155);
 }
+
+.page {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+margin-left: 60px;
+margin-right: 60px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.page__title {
+  margin: 0;
+  padding: 0;
+  max-width: 70%;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.page__img {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 25px;
+  max-width: 80%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 25px;
+}
+
+.live__page {
+  height: 25px;
+  background-color: #ddd; /* Цвет фона шкалы */
+  width: 100%; /* Изначальная ширина шкалы */
+  max-width: 80%;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.live__page-fill {
+  height: 100%;
+  width: 0; /* Изначальная ширина закрашенной части */
+  background-color: #4caf50;
+  max-width: 80%; /* Цвет закрашенной части */
+  border-radius: 20px;
+}
+
+.task__item {
+  text-decoration: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+

@@ -1,11 +1,12 @@
 import './App.css'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 function Header() {
   const [name, setName] = useState('Введите Ваше имя')
 
   return (
-    <header className="header">
-      <div className="header__logo"></div>
+     <header className="header"> 
+      <Link to="/"><div className="header__logo"></div></Link>
       <input
         onChange={(evt) => setName(evt.target.value)}
         className="header__input"

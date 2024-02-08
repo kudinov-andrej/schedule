@@ -11,9 +11,11 @@ function App() {
   const [lives, setLives] = useState([])
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [newLife, setNewLife] = useState({
+    id: '',
     name: '',
     background: '',
     force: '',
+    task: [],
   })
   const [totalLivesForce, setTotalLivesForce] = useState(0)
 
@@ -37,6 +39,7 @@ function App() {
     closeModal()
   }
 
+ 
   const handleInputChange = (e) => {
     // Обновите состояние новой жизни при изменении ввода
     setNewLife({ ...newLife, [e.target.name]: e.target.value })
@@ -46,7 +49,6 @@ function App() {
     let result = 0
     lives.forEach((element) => {
       result = parseFloat(element.force) + result
-      console.log(totalLivesForce, lives.length)
     })
     return setTotalLivesForce(result / lives.length)
   }
@@ -68,7 +70,12 @@ function App() {
             />
           }
         />
-        <Route path="/life/:index" element={<Page lives={lives} />} />
+        <Route path="/life/:index" element={<Page lives={lives}
+        handleInputChange={handleInputChange}
+        newLife={newLife}
+        setLives={setLives}
+        setNewLife={setNewLife}
+        />} />
       </Routes>
       </main>
       <Modal
