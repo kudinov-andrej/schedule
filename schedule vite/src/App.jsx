@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Modal from 'react-modal'
 import Popup from './Popup'
 import Header from './Header'
-import Result from './Result'
-import Lives from './Lives'
-import Title from './Title'
+import Page from './Page'
+import Content from './Content'
 
 function App() {
   const [lives, setLives] = useState([])
@@ -54,31 +54,34 @@ function App() {
   return (
     <>
       <div className="content">
-        <Header  />
-        <main className="main">
-         <Result 
-         totalLivesForce = {totalLivesForce}
-         />
-          <Title 
-          lives = {lives}
-          />
-          <Lives 
-          lives = {lives}
-          openModal ={openModal}
-          />
-        </main>
+        <Header />
       </div>
+      <main className="main">
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Content
+              totalLivesForce={totalLivesForce}
+              lives={lives}
+              openModal={openModal}
+            />
+          }
+        />
+        <Route path="/life/:index" element={<Page lives={lives} />} />
+      </Routes>
+      </main>
       <Modal
         className="popup"
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Add Life Modal"
       >
-        <Popup 
-        handleInputChange = {handleInputChange}
-        newLife={newLife}
-        handleAddLife={handleAddLife}
-        closeModal={closeModal}
+        <Popup
+          handleInputChange={handleInputChange}
+          newLife={newLife}
+          handleAddLife={handleAddLife}
+          closeModal={closeModal}
         />
       </Modal>
     </>
